@@ -6,8 +6,6 @@ class Todo extends React.Component{
         return (
             <div>
                 <p>{this.props.todo.item}</p>
-                <p>{this.props.todo.done}</p>
-                {/* {console.log(this.props.todo)} */}
             </div>
         )
     }

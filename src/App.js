@@ -6,7 +6,7 @@ const initialTodo =  [
   {
     item: '',
     id: 0,
-    done: false
+    done: true
   },
 ];
 
@@ -29,14 +29,20 @@ class App extends React.Component {
       list: [...this.state.list, newItem]
     })
   }
+  clearItem = () => {
+    this.setState({
+      ...this.state,
+      list: this.state.list.filter(todo => {
+        return todo.done === false;
+      })
+    })
+  }
   
-
   render() {
     return (
       <div>
         <h1>Welcome to your Todo App!</h1>
-        {/* map through list */}
-        <TodoList list = {this.state.list}/>
+        <TodoList list = {this.state.list} clear = {this.clearItem}/>
         <TodoForm handleChange = {this.handleChange} input = {this.state.input} submit = {this.submitTodo}/>
       </div>
     );
